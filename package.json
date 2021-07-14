@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "visitsuzugamori-with",
+  "version": "1.0.1",
+  "description": "VisitSuzugamori goes everywhere with you.",
+  "engines": {
+    "node": ">=12.13.0"
+  },
+  "main": "scripts/index.js",
+  "type": "commonjs",
+  "jest": {
+    "verbose": true
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "jest": "jest",
+    "eslint": "eslint scripts/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VisitSuzugamori/with.git"
+  },
+  "keywords": [
+    "WebAR",
+    "Contents",
+    "images"
+  ],
+  "author": "isnot (https://github.com/isnot)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VisitSuzugamori/with/issues"
+  },
+  "homepage": "https://visitsuzugamori.github.io/with/",
+}
