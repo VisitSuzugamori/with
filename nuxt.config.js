@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 import colors from 'vuetify/es5/util/colors';
 
 export default {
@@ -11,10 +13,14 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'demo for WebAR' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: 'https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js' },
+      { src: 'https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js' },
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -58,7 +64,8 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
+      light: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -69,10 +76,23 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
+        light: {
+          primary: '#3f51b5',
+          secondary: '#b0bec5',
+          accent: '#8c9eff',
+          error: '#b71c1c',
+        },
       },
     },
   },
 
+  server: {
+    host: '0.0.0.0',
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'cert/localhost.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'cert/localhost.crt'))
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
