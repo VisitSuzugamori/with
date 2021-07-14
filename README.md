@@ -83,8 +83,6 @@ More information about the usage of this directory in [the documentation](https:
 
 ## Copyright and License 免責
 
-- [ざつ旅-That's Journey-](https://www.kadokawa.co.jp/product/search/?sort=0&kw=%E3%81%96%E3%81%A4%E6%97%85) Copyright (c) 石坂 ケンタ, KADOKAWA, 電撃マオウ
-
 
 ### 「Twitter」および「Flickr」に由来する、画像、動画やテキスト、またそれらの付属情報に関して
 
