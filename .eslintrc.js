@@ -14,8 +14,6 @@ module.exports = {
     'jest/globals': true,
   },
   extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended',
     'prettier',
     'eslint:recommended',
     'plugin:json/recommended',
@@ -48,8 +46,5 @@ module.exports = {
     ],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
-    'node/no-unsupported-features/es-syntax': 0,
-    'node/no-unpublished-import': 0,
-    'node/no-missing-import': 0,
   },
 };
