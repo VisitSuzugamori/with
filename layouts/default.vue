@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style>
-body, #__nuxt, #__layout, #app {
+body, #__nuxt, #__layout, .container {
  height: 100%;
  margin: 0;
  overflow: hidden;

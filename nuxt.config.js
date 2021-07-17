@@ -18,10 +18,13 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      { src: 'https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js' },
+      { src: 'https://cdn.jsdelivr.net/gh/aframevr/aframe@1.2.0/dist/aframe-master.min.js' },
+      // 1c2407b26c61958baa93967b5412487cd94b290b
       { src: 'https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js' },
     ]
   },
+  // <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe-master.min.js" integrity="sha256-Z+8BsBz8dMfQo70uKaPZONhSNUhqFhYcy36bFyZFy4I=" crossorigin="anonymous"></script>
+  // <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
@@ -56,7 +59,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      lang: 'ja',
     },
   },
 
@@ -86,11 +89,35 @@ export default {
     },
   },
 
+  vue: {
+    config: {
+      ignoredElements: [
+        'a-scene',
+        'a-entity',
+        'a-assets',
+        'a-plane',
+        'a-nft',
+        'a-camera',
+        'a-image',
+        'a-box',
+        'a-circle',
+        'a-cube',
+        'a-cone',
+        'a-sky',
+        'a-text',
+        'a-link',
+        'a-obj-model',
+        'a-gltf-model',
+        'a-cursor',
+      ]
+    }
+  },
+
   server: {
     host: '0.0.0.0',
     https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'cert/localhost.key')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'cert/localhost.crt'))
+      key: fs.readFileSync(path.resolve(__dirname, 'cert/server.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'cert/server.crt'))
     }
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
