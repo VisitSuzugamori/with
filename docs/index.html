@@ -1,1 +1,63 @@
-create
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sample WebAR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+<meta name="description" content="AR表示する">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sample WebAR">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:author" content="isnot">
+<script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe-master.min.js" integrity="sha256-Z+8BsBz8dMfQo70uKaPZONhSNUhqFhYcy36bFyZFy4I=" crossorigin="anonymous"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<!-- https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<style></style>
+</head>
+<body>
+  <div id="container">
+    <header class="article-header">
+      <h1>Sample</h1>
+    </header>
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <a-assets>
+      <img id="book" src="/dengekimaoh2021-7.jpg">
+    </a-assets>
+      <a-text value="Hello, World!"></a-text>
+    <a-cube
+      color="#0095DD"
+      position="10 1 10"
+      rotation="20 40 0">
+    </a-cube>
+  <a-plane src="#book" height="1240" width="1764" rotation="-90 0 0"></a-plane>
+    <a-nft
+      type="nft"
+      url="/dengekimaoh2021-7"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <a-entity
+            gltf-model="/Ryukin_goldfish/scene.gltf"
+            scale="5 5 5"
+            position="50 150 0"
+        >
+      </a-entity>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+<p><a href="https://sketchfab.com/3d-models/ryukin-goldfish-df9a7c57c2b34d5a818f360e679b576a">&quot;Ryukin goldfish&quot; by somitsu</a> is licensed under Creative Commons Attribution <a href="http://creativecommons.org/licenses/by/4.0/" >CC-BY</a>.</p>
+</body>
+</html>
