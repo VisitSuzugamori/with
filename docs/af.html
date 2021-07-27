@@ -10,7 +10,6 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="article:author" content="isnot">
 <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe-master.min.js" integrity="sha256-Z+8BsBz8dMfQo70uKaPZONhSNUhqFhYcy36bFyZFy4I=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
   .arjs-loader {
     height: 100%;
@@ -30,32 +29,37 @@
     font-size: 1.25em;
     color: white;
   }
+  body { margin : 0px; overflow: hidden; }
+  #background {
+      posision: fixed;
+      left: 0;
+      top: 0;
+      z-index: -10;
+      width: 100vw;
+  }
+  #background img {
+      height: 100vh;
+      display: block;
+      margin: 0 auto;
+  }
 </style>
 </head>
-<body style='margin : 0px; overflow: hidden;'>
-  <div class="arjs-loader">
-    <div>Loading, please wait...</div>
+<body>
+  <div id="background">
+    <img alt="background" src="okutama-st.jpg">
   </div>
   <a-scene
-    vr-mode-ui='enabled: false;'
+    vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
-    embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+    physics="debug: true"
+    >
     <a-assets>
-      <img id="apple" src="apple.jpg">
+      <img id="apple" src="apple.jpg"><!-- okutama-st.jpg -->
+      <a-asset-item id="fish" src="trex/scene.gltf"></a-asset-item>
     </a-assets>
     <a-camera position="0 1 0"></a-camera>
-
-    <a-nft
-      type='nft' url='trex-image/trex'
-      smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-      <a-entity
-        gltf-model="trex/scene.gltf"
-        scale="5 5 5"
-        position="50 150 0"
-      >
-      </a-entity>
-    </a-nft>
-    <a-entity camera></a-entity>
+    <a-plane src="#apple" position="0 0.6 -1" scale="0.4 0.4 0" rotation="0 0 0"></a-plane>
+    <a-entity gltf-model="#fish"></a-entity>
   </a-scene>
 </body>
 </html>
