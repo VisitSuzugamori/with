@@ -30,32 +30,49 @@
     font-size: 1.25em;
     color: white;
   }
+  body { margin : 0px; overflow: hidden; }
 </style>
 </head>
-<body style='margin : 0px; overflow: hidden;'>
+<body>
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
   <a-scene
-    vr-mode-ui='enabled: false;'
-    renderer="logarithmicDepthBuffer: true;"
-    embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+    vr-mode-ui="enabled: false;"
+    renderer="gammaOutput: true;logarithmicDepthBuffer: true;"
+    embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
     <a-assets>
+      <a-asset-item id="model" src="Ryukin_goldfish/scene.gltf"></a-asset-item>
       <img id="apple" src="apple.jpg">
     </a-assets>
-    <a-camera position="0 1 0"></a-camera>
+    <a-camera position="0 1.5 0"></a-camera>
+    <a-plane src="#apple" height="2" rotation="0 0 0"></a-plane>
 
     <a-nft
-      type='nft' url='trex-image/trex'
-      smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-      <a-entity
-        gltf-model="trex/scene.gltf"
-        scale="5 5 5"
-        position="50 150 0"
+      type="nft"
+      url="trex-image/trex"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance="0.01"
+      smoothThreshold="5"
       >
+      <a-entity
+        animation-mixer="clip:*"
+        visible="true"
+        gltf-model="#model"
+        scale="10 10 10"
+        position="45 150 -3"
+        >
       </a-entity>
     </a-nft>
+    <a-light type="ambient" color="#ffffff"></a-light>
+    <a-light type="point" intensity="2" position="0 4 0"></a-light>
     <a-entity camera></a-entity>
   </a-scene>
+  <div class="footer">
+    <p><a href="https://sketchfab.com/3d-models/latifa-v2-original-vrchatgame-ready-d08a68245c124b1f819213bb9b236a04">&quot;Latifa V2 - Original | VRChat/Game Ready&quot;</a> by <a href="https://sketchfab.com/Avalanche9">Merian♣</a> licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></p>
+    <p><a href="https://sketchfab.com/3d-models/mekakucity-actors-marry-kozakura-9ecf19bdd3d947d9b610ff5ef317e115">&quot;Mekakucity Actors - Marry Kozakura&quot;</a> by <a href="https://sketchfab.com/INDIG0">Indig0</a> licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></p>
+    <p><a href="https://sketchfab.com/3d-models/ryukin-goldfish-df9a7c57c2b34d5a818f360e679b576a">&quot;Ryukin goldfish&quot; by somitsu</a> is licensed under Creative Commons Attribution <a href="http://creativecommons.org/licenses/by/4.0/" >CC-BY-4.0</a>.</p>
+  </div>
 </body>
 </html>
