@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 import colors from 'vuetify/es5/util/colors';
 
 export default {
@@ -11,11 +13,17 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'demo' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css' }
+    ],
+    script: [
+    ]
   },
+  // <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
@@ -50,7 +58,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      lang: 'ja',
     },
   },
 
@@ -58,7 +66,8 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
+      light: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -69,10 +78,30 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
+        light: {
+          primary: '#3f51b5',
+          secondary: '#b0bec5',
+          accent: '#8c9eff',
+          error: '#b71c1c',
+        },
       },
     },
   },
 
+  vue: {
+    config: {
+      ignoredElements: [
+      ]
+    }
+  },
+
+  server: {
+    host: '0.0.0.0',
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'cert/server.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'cert/server.crt'))
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
