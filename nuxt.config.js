@@ -9,7 +9,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - VisitSuzugamori-with',
-    title: 'VisitSuzugamori-with',
+    title: 'index',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,12 +18,11 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css' }
+      // { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css' },
     ],
     script: [
     ]
   },
-  // <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
@@ -102,6 +101,7 @@ export default {
       cert: fs.readFileSync(path.resolve(__dirname, 'cert/server.crt'))
     }
   },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
